@@ -14,3 +14,24 @@
     margin-right: 50px;
     border-radius: 20px;
 }
+
+.goods-list{
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    // flex-direction: row;
+    // justify-content: space-between;
+    // align-items: center;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.goods-item {
+    margin-top: 20px;
+    min-height: 250px;
+    // width: 150px;
+    outline: 1px solid black;
+}
