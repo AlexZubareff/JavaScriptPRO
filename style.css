@@ -1,6 +1,6 @@
 .header {
   height: 50px;
-  background-color: #136de2;
+  background-color: #162f55;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -15,9 +15,15 @@
 .cart-button {
   width: 80px;
   height: 30px;
-  background-color: blueviolet;
+  background-color: #e22b62;
   margin-right: 50px;
   border-radius: 20px;
+  color: white;
+}
+
+.cart-button:hover {
+  background-color: #a81c46;
+  cursor: pointer;
 }
 
 .goods-list {
@@ -28,16 +34,37 @@
   display: flex;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
   -ms-grid-columns: (minmax(150px, 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 10px;
 }
 
 .goods-item {
   margin-top: 20px;
   min-height: 250px;
   outline: 1px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.image {
+  min-width: 130px;
+  min-height: 130px;
+  outline: 1px solid red;
+}
+
+h3,
+p {
+  margin: 0;
 }
 /*# sourceMappingURL=style.css.map */
