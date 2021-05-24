@@ -7,11 +7,7 @@ class GoodsItem {
   }
   render (){
     return `<div class="goods-item"><img class = "image"><h3>${this.title}</h3><p>${this.price}</p></div>`;
-    // this.totalsum.insertAdjacentHTML('beforeend', `В корзине позиций: ${this.goods.length}. Общая стоимость товаров: ${this.sumBasketPrice()} руб.`);
     }
-  // render () {
-  //       this.basketBlock.insertAdjacentHTML('beforeend', `В корзине позиций: ${this.goods.length}. Общая стоимость товаров: ${this.sumBasketPrice()} руб.`);
-  //     }
 }
 
 class GoodsList {
