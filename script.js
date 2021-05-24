@@ -7,7 +7,11 @@ class GoodsItem {
   }
   render (){
     return `<div class="goods-item"><img class = "image"><h3>${this.title}</h3><p>${this.price}</p></div>`;
-  }
+    // this.totalsum.insertAdjacentHTML('beforeend', `В корзине позиций: ${this.goods.length}. Общая стоимость товаров: ${this.sumBasketPrice()} руб.`);
+    }
+  // render () {
+  //       this.basketBlock.insertAdjacentHTML('beforeend', `В корзине позиций: ${this.goods.length}. Общая стоимость товаров: ${this.sumBasketPrice()} руб.`);
+  //     }
 }
 
 class GoodsList {
@@ -36,35 +40,41 @@ class GoodsList {
   }
 // Вычисление общей стоимости  goods
   sumGoodsListPrice () {
-    return this.goods.reduce((sumCostItem, goods) => sumCostItem + goods.price,0);
+    const totalSum = this.goods.reduce((totalSumItem, goods) => totalSumItem + goods.price,0);
+    document.querySelector('.total-sum').innerHTML = totalSum;
+    console.log(totalSum);
     }
 }
 
-class Cart {
-  constructor (title, price, quantity) {
-    this.title = title;
-    this.price = price;
-    this.quantity = quantity;
+class Cart extends GoodsList {
+  constructor (...args) {
+    super(...args);
   }
+  clearAll () {}
+  addItem () {}
+  removeItem () {}
   // метод отрисовки корзины
   // метод добавления товара в корзину
   // метод удаления товара из корзины
   // метод подсчета суммы товаров в корзине
 }
 
-class CartItem {
-  constructor (title, price, quantity) {
-    this.title = title;
-    this.price = price;
-    this.quantity = quantity;
+class CartItem extends GoodsList {
+  constructor (...args) {
+    super(...args);
+    this.count = 0;
+  }
+  addOne () {}
+  removeOne () {}
   }
 //метод изменения колличества данного товара в корзине
 
-}
+
 
 const list = new GoodsList();
 list.fetchGoods();
-list.render();
 list.sumGoodsListPrice();
+list.render();
+
 
 

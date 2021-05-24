@@ -26,6 +26,17 @@
   cursor: pointer;
 }
 
+.total-sum {
+  width: 80px;
+  height: 30px;
+  background-color: #e22b62;
+  margin-right: 50px;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+}
+
 .goods-list {
   max-width: 1600px;
   margin: 0 auto;
