@@ -40,13 +40,23 @@
 .goods-list {
   max-width: 1600px;
   margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(150px, 250px))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(150px, 250px));
+  grid-gap: 10px;
+}
+
+.cart-list {
+  max-width: 1600px;
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(150px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  -ms-grid-columns: (minmax(150px, 150px))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(150px, 150px));
   grid-gap: 10px;
 }
 

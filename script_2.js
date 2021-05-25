@@ -24,6 +24,14 @@ class GoodsList {
       { title: 'Socks', price: 50 },
       { title: 'Jacket', price: 350 },
       { title: 'Shoes', price: 250},
+      { title: 'Shirt', price: 150 },
+      { title: 'Socks', price: 50 },
+      { title: 'Jacket', price: 350 },
+      { title: 'Shoes', price: 250},
+      { title: 'Shirt', price: 150 },
+      { title: 'Socks', price: 50 },
+      { title: 'Jacket', price: 350 },
+      { title: 'Shoes', price: 250},
     ];
   }
   render () {
@@ -72,5 +80,9 @@ list.fetchGoods();
 list.sumGoodsListPrice();
 list.render();
 
+// ДЗ 3
+// 1. Переделайте makeGETRequest() так, чтобы она использовала промисы.
+// 2. Добавьте в соответствующие классы методы добавления товара в корзину, удаления товара из корзины и получения списка товаров корзины.
+// 3* Переделайте GoodsList так, чтобы fetchGoods() возвращал промис, а render() вызывался в обработчике этого промиса.
 
 

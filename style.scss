@@ -36,9 +36,18 @@
 .goods-list{
     max-width: 1600px;
     margin: 0 auto;
+    // display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 250px));
+    grid-gap: 10px;
+}
+
+.cart-list{
+    max-width: 1600px;
+    margin: 0 auto;
     display: flex;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 150px));
     grid-gap: 10px;
 }
 
