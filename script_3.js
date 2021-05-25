@@ -1,5 +1,11 @@
 `use strict`
 
+// ДЗ 3
+// 1. Переделайте makeGETRequest() так, чтобы она использовала промисы.
+// 2. Добавьте в соответствующие классы методы добавления товара в корзину, удаления товара из корзины и получения списка товаров корзины.
+// 3* Переделайте GoodsList так, чтобы fetchGoods() возвращал промис, а render() вызывался в обработчике этого промиса.
+
+
 const API_URL = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses'
 
 const makeGETRequest = (url, callback) => {
@@ -71,26 +77,6 @@ class GoodsList {
     this.filteredGoods = this.goods.filter(good => regexp.test(good.product_name));
     this.render();
   }
-  //   fetchGoods () {
-  //   this.goods = [
-  //     { title: 'Shirt', price: 150 },
-  //     { title: 'Socks', price: 50 },
-  //     { title: 'Jacket', price: 350 },
-  //     { title: 'Shoes', price: 250},
-  //     { title: 'Shirt', price: 150 },
-  //     { title: 'Socks', price: 50 },
-  //     { title: 'Jacket', price: 350 },
-  //     { title: 'Shoes', price: 250},
-  //     { title: 'Shirt', price: 150 },
-  //     { title: 'Socks', price: 50 },
-  //     { title: 'Jacket', price: 350 },
-  //     { title: 'Shoes', price: 250},
-  //     { title: 'Shirt', price: 150 },
-  //     { title: 'Socks', price: 50 },
-  //     { title: 'Jacket', price: 350 },
-  //     { title: 'Shoes', price: 250},
-  //   ];
-  // }
   render () {
     let listHtml = '';
     this.filteredGoods.forEach(good => {
@@ -116,18 +102,13 @@ class Cart  {
     this.goods = [];
     
   }
-  addItem(event) {
-    const { target } = event;
+
+  addItem ({target}) {
     const { product = {} } = target.dataset;
     this.goods.push(JSON.parse(product));
     this.render();
   }
 
-  // addItem ({target}) {
-  //   const { product = {} } = target.dataset;
-  //   this.goods.push(JSON.parse(product));
-  //   this.render();
-  // }
   removeItem({target}) {
     const { id = null} = target.dataset;
     this.goods = this.goods.filter((item) => String(item.id_product) !== String(id));
@@ -155,14 +136,8 @@ class Cart  {
     document.querySelector('.cart-list').innerHTML = listHtml;
     this.setDeleteListeners();
   }
-// // Вычисление общей стоимости  корзины
-//   sumGoodsListPrice () {
-//     const totalSum = this.goods.reduce((totalSumItem, goods) => totalSumItem + goods.price,0);
-//     document.querySelector('.total-sum').innerHTML = totalSum;
-//     console.log(totalSum);
-//     }
-
 }
+
 
 class CartItem extends GoodsItem {
   constructor (...args) {
@@ -205,9 +180,5 @@ searchInput.addEventListener('keydown', (e) => {
 });
 
 
-// ДЗ 3
-// 1. Переделайте makeGETRequest() так, чтобы она использовала промисы.
-// 2. Добавьте в соответствующие классы методы добавления товара в корзину, удаления товара из корзины и получения списка товаров корзины.
-// 3* Переделайте GoodsList так, чтобы fetchGoods() возвращал промис, а render() вызывался в обработчике этого промиса.
 
 
