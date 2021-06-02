@@ -1,0 +1,107 @@
+.header {
+  height: 50px;
+  background-color: #162f55;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cart-button {
+  width: 80px;
+  height: 30px;
+  background-color: #e22b62;
+  margin-right: 50px;
+  border-radius: 20px;
+  color: white;
+}
+
+.cart-button:hover {
+  background-color: #a81c46;
+  cursor: pointer;
+}
+
+.total-sum {
+  width: 80px;
+  height: 30px;
+  background-color: #e22b62;
+  margin-right: 50px;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+}
+
+.goods-search {
+  width: 150px;
+  height: 30px;
+  border-radius: 20px;
+}
+
+.search-button {
+  width: 80px;
+  height: 25px;
+  background-color: #e22b62;
+  color: white;
+  border-radius: 20px;
+  margin-right: 50px;
+  margin-left: 10px;
+}
+
+.goods-list {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(150px, 250px))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(150px, 250px));
+  grid-gap: 10px;
+}
+
+.cart-list {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(150px, 150px))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(150px, 150px));
+  grid-gap: 10px;
+}
+
+.goods-item {
+  margin-top: 20px;
+  min-height: 250px;
+  outline: 1px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.image {
+  min-width: 130px;
+  min-height: 130px;
+  outline: 1px solid red;
+}
+
+h3,
+p {
+  margin: 0;
+}
+/*# sourceMappingURL=style.css.map */
