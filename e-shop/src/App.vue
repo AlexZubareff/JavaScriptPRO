@@ -1,39 +1,35 @@
 <template>
-     <header class="header">
-        <div class="total-sum"></div>
-        <input v-model="searhLine" type="text" class="goods-search" />
-        <button class="search-button" type="button" @click="filterGoods">Искать</button>
-        <button class="cart-button" type="button" @click="toggleCartStatus">Корзина</button>
-      </header>
+<div>
       <main>
-        Товары:
-        <div class="goods-list">
-          <div v-for="item in filteredGoods" :key="item.id_product" class='goods-item'>
-              <img class = "image">
-              <h3>{{item.product_name}}</h3>
-              <p>{{item.price}}</p>
-              <button>Добавить</button>
-            </div>
-        </div>
+        <Header @toggle-cart="toggleCartStatus" @filter-goods="filterGoods" />
+        <GoodsList :goods="filteredGoods" />
+        <Cart :isVisibleCart="isVisibleCart" />
+      
         <br />
         
-        <div v-show="isVisibleCart" class="cart">
-          Корзина:
-            <div class="cart-list"></div>
-        </div>
         
       </main>
+  </div>   
 </template>
 
 <script>
+import GoodsList from './components/GoodsList';
+import Header from './components/Haeder';
+import Cart from './components/Cart';
 
 const API_URL = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses'
 
 export default {
+  components: {
+    GoodsList,
+    Header,
+    Cart,
+  },
+
   data: () => ({
     goods: [],
     filteredGoods: [],
-    searhLine: '',
+    // searhLine: '',
     isVisibleCart: false,
   }),
   
@@ -51,19 +47,14 @@ export default {
         })
     },
 
-    filterGoods () {
-        const regexp = new RegExp(this.searhLine, 'i');
+    filterGoods (value) {
+        const regexp = new RegExp(value, 'i');
         this.filteredGoods = this.goods.filter(good => regexp.test(good.product_name));
     },
     toggleCartStatus () {
       this.isVisibleCart = !this.isVisibleCart;
     }
   },
-  watch: {
-    searhLine() {
-      this.filterGoods();
-    }
-  }
 }
 </script>
 
@@ -126,15 +117,6 @@ export default {
   cursor: pointer;
 }
 
-.goods-list {
-  max-width: 1600px;
-  margin: 0 auto;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(150px, 250px))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(150px, 250px));
-  grid-gap: 10px;
-}
 
 .cart {
   box-shadow: 0px 0px 5px 2px black;
@@ -162,23 +144,6 @@ export default {
   grid-gap: 10px;
 }
 
-.goods-item {
-  margin-top: 20px;
-  min-height: 250px;
-  outline: 1px solid black;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
 
 .image {
   min-width: 130px;
