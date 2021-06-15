@@ -17,25 +17,28 @@ app.use(bodyParser.json());
 //     res.setHeader('Access-Control-Allow-Credentials', true);
 //     next();
 // });
-app.post('/addToCart',(req, res) => {
-    fs.readFile('./database/cart.json', 'utf-8', (err, data) => {
-        if (err) {
-            res.send('{"result": 0}')
-        } else {
-            const catr = JSON.parse(data);
-            const item = req.body;
-            catr.push(item);
-            fs.writeFile('/database/cart.json', JSON.stringify(data), (err) => {
-                if (err) {
-                    res.send('{"result": 0}')
-                } else {
-                    res.send('{"result": 1}')
-                }
-            })
-        }
+app.post('/addToCart', (req, res) => {
+    fs.readFile('./database/cart.json', 'utf8', (err, data) => {
+      if (err) {
+        res.send('{ "result": 0 }')
+      } else {
+        const cart = JSON.parse(data);
+        const item = req.body;
+  
+        cart.push(item);
+  
+        fs.writeFile('./database/cart.json', JSON.stringify(cart), (err) => {
+          if (err) {
+            res.send('{"result": 0}');
+          } else {
+            res.send('{"result": 1}');
+          }
+        })
+      }
     })
-})
+  })
 
+  
 app.get('/catalogData', (req, res) => {
     fs.readFile('./database/catalog.json', 'utf-8', (err, data) => {
         // console.log(data);

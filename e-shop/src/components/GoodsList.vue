@@ -1,36 +1,34 @@
 <template>
-    <div>
-        Элитные Товары:
-        <div class="goods-list">
-          <div v-for="item in goods" :key="item.id_product" class='goods-item'>
-              <img class = "image">
-              <h3>{{item.product_name}}</h3>
-              <p>{{item.price}}</p>
-              <button @click="onClick(item)">Добавить</button>
-            </div>
-        </div>
+  <div>
+    Элитные товары:
+    <div class="goods-list">
+      <div v-for="item in goods" :key="item.id_product" class='goods-item'>
+        <img class = "image">
+        <h3>{{item.product_name}}</h3>
+        <p>{{item.price}}</p>
+        <button @click="onClick(item)">Добавить</button>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
-    props: {
-        goods: {
-            type: Array,
-            default: () => [],
-        }
-    },
-    methods: {
-    onClick(item) {
-        this.$emit('add-to-cart', item);
-        }
+  props: {
+    goods: {
+      type: Array,
+      default: () => [],
     }
+  },
+  methods: {
+    onClick(item) {
+      this.$emit('add-to-cart', item);
+    }
+  }
 }
-
-
 </script>
 
-<style scoped>
+<style>
 
 .goods-list {
   max-width: 1600px;

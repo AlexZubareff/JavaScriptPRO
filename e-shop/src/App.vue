@@ -2,19 +2,17 @@
 <div>
       <main>
         <Header @toggle-cart="toggleCartStatus" @filter-goods="filterGoods" />
-        <GoodsList :goods="filteredGoods" />
-        <Cart @add-to-cart="addToCart" :cartGoods="cartGoods" :isVisibleCart="isVisibleCart" />
-      
-        <br />
-        
-        
+        <GoodsList @add-to-cart="addToCart" :goods="filteredGoods" />
+        <Cart :cartGoods="cartGoods" :isVisibleCart="isVisibleCart" />
+         
       </main>
   </div>   
 </template>
 
 <script>
+
 import GoodsList from './components/GoodsList';
-import Header from './components/Haeder';
+import Header from './components/Header';
 import Cart from './components/Cart';
 
 const API_URL = 'http://localhost:3000';
@@ -89,9 +87,6 @@ export default {
 </script>
 
 <style>
-
-
-
 
 .image {
   min-width: 130px;
