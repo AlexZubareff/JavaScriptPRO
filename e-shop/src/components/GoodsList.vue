@@ -6,7 +6,7 @@
         <img class = "image">
         <h3>{{item.product_name}}</h3>
         <p>{{item.price}}</p>
-        <button @click="onClick(item)">Добавить</button>
+        <button @click="onClick(item)" class="add-button">Добавить</button>
       </div>
     </div>
   </div>
@@ -41,6 +41,7 @@ export default {
 }
 
 .goods-item {
+  box-shadow: 2px 2px 2px 2px rgb(112, 110, 110);
   margin-top: 20px;
   min-height: 250px;
   outline: 1px solid black;

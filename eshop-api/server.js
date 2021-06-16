@@ -17,6 +17,30 @@ app.use(bodyParser.json());
 //     res.setHeader('Access-Control-Allow-Credentials', true);
 //     next();
 // });
+
+app.post('/deleteFromCart', (req, res) => {
+  fs.readFile('./database/cart.json', 'utf8', (err, data) => {
+    if (err) {
+      res.send('{ "result": 0 }')
+    } else {
+      let cart = JSON.parse(data);
+      const item = req.body;
+
+      cart = cart.filter((cartItem) => cartItem.id_product !== item.id_product)
+      
+      fs.writeFile('./database/cart.json', JSON.stringify(cart), (err) => {
+        if (err) {
+          res.send('{"result": 0}');
+        } else {
+          res.send('{"result": 1}');
+        }
+      })
+    }
+  })
+})
+
+
+
 app.post('/addToCart', (req, res) => {
     fs.readFile('./database/cart.json', 'utf8', (err, data) => {
       if (err) {

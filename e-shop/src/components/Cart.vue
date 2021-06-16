@@ -6,13 +6,15 @@
         <img class = "image">
         <h3>{{item.product_name}}</h3>
         <p>{{item.price}}</p>
-        <button @click="onClick(item)">Удалить</button>
+        <button @click="onClick(item)" class="del-button">Удалить</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+const API_URL = 'http://localhost:3000'
+
 export default {
   props: {
     isVisibleCart: {
@@ -22,6 +24,20 @@ export default {
     cartGoods: {
       type: Array,
       default: () => ([]),
+    },
+    makePOSTRequest:{
+      type: Function,
+      default: () => null  
+    },
+    getCart:{
+      type: Function,
+      default: () => null  
+    },
+  },
+  methods: {
+    onClick(item) {
+      this.makePOSTRequest(`${API_URL}/deleteFromCart`, item)
+        .then(() => this.getCart())
     }
   }
 }
@@ -29,7 +45,7 @@ export default {
 
 <style>
 .cart {
-  box-shadow: 0px 0px 5px 2px black;
+  box-shadow: 2px 2px 2px 2px rgb(112, 110, 110);
   padding: 20px;
   width: 800px;
   height: 500px;

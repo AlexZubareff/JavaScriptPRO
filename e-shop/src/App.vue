@@ -3,7 +3,7 @@
       <main>
         <Header @toggle-cart="toggleCartStatus" @filter-goods="filterGoods" />
         <GoodsList @add-to-cart="addToCart" :goods="filteredGoods" />
-        <Cart :cartGoods="cartGoods" :isVisibleCart="isVisibleCart" />
+        <Cart :makePOSTRequest="makePOSTRequest" :getCart="getCart" :cartGoods="cartGoods" :isVisibleCart="isVisibleCart" />
          
       </main>
   </div>   
@@ -52,7 +52,6 @@ export default {
       return fetch(url, {
         method: 'POST',
         headers: {
-          // добавили хэдер
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(data),
@@ -98,5 +97,24 @@ h3,
 p {
   margin: 0;
 }
-/*# sourceMappingURL=style.css.map */
+
+.add-button,
+.del-button {
+width: 80px;
+height: 30px;
+background-color: rgb(226, 43, 98);
+color: rgb(255, 255, 255);
+border-radius: 20px;
+border: none;
+}
+
+.add-button:hover {
+  background-color: #db104d;
+  cursor: pointer;
+}
+
+.del-button:hover {
+  background-color: #db104d;
+  cursor: pointer;
+}
 </style>

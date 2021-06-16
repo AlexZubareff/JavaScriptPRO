@@ -44,10 +44,12 @@ export default {
 .cart-button {
   width: 80px;
   height: 30px;
-  background-color: #e22b62;
-  margin-right: 50px;
+  background-color: rgb(226, 43, 98);
+  color: rgb(255, 255, 255);
   border-radius: 20px;
-  color: white;
+  margin-right: 50px;
+  margin-left: 10px;
+  border: none;
 }
 
 .cart-button:hover {
@@ -70,6 +72,8 @@ export default {
     width: 150px;
     height: 25px;
     border-radius: 20px;
+    border: none;
+
 }
 .search-button {
     width: 80px;
@@ -79,6 +83,8 @@ export default {
     border-radius: 20px;
     margin-right: 50px;
     margin-left: 10px;
+    border: none;
+
 }
 .search-button:hover {
   background-color: #db104d;
