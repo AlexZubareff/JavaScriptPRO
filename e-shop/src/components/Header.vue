@@ -44,7 +44,8 @@ export default {
 .cart-button {
   width: 80px;
   height: 30px;
-  background-color: rgb(226, 43, 98);
+  background-color: #162f55;
+  /* background-color: rgb(226, 43, 98); */
   color: rgb(255, 255, 255);
   border-radius: 20px;
   margin-right: 50px;
@@ -78,7 +79,8 @@ export default {
 .search-button {
     width: 80px;
     height: 30px;
-    background-color: rgb(226, 43, 98);
+    background-color: #162f55;
+    /* background-color: rgb(226, 43, 98); */
     color: rgb(255, 255, 255);
     border-radius: 20px;
     margin-right: 50px;
