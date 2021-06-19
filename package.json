@@ -1,0 +1,22 @@
+{
+  "name": "javascriptpro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script_7.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexZubareff/JavaScriptPRO.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexZubareff/JavaScriptPRO/issues"
+  },
+  "homepage": "https://github.com/AlexZubareff/JavaScriptPRO#readme",
+  "dependencies": {
+    "jasmine": "^3.7.0"
+  }
+}

@@ -1,0 +1,24 @@
+1. Как сделать сборку не минифицированной.
+
+
+module.exports = {
+    optimization:{
+        minimize: false, // убирает минимизацию
+    }
+}
+
+
+2. Найти в официальной документации способ автоматически перезапускать webpack при изменении файла. 
+Изменить скрипт build, добавив туда этот способ. Подсказка: при запуске нужно использовать определённый флаг.
+
+Необходимо добавить в файл webpack.config.js флаг wath: true. Чтобы еще убыстрить можно добавить параметр wathOptions {aggregateTimeout:100}. По умолчанию aggregateTimeout: 300.
+module.exports = {
+  entry: './script',
+  output: {
+    filename: './build.js'
+  }
+
+  wath: true,
+  wathOptions {
+      aggregateTimeout:100
+  }
